@@ -1,7 +1,5 @@
 package main;
 
-import com.sun.istack.internal.Pool;
-
 public class Implicit {
     private Vector vector;
     private Position2D point;

@@ -1,5 +1,8 @@
 package main;
 
 public interface IPong {
-    void play();
+
+  void play();
+
+  Vector reflectedVector(Ball ball, Implicit wallEquation);
 }
