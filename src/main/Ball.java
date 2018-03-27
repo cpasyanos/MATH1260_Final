@@ -3,10 +3,12 @@ package main;
 public class Ball {
     private Vector vector;
     private Position2D position;
+    private int radius;
 
-    public Ball(Vector vector, Position2D position) {
+    public Ball(Vector vector, Position2D position, int radius) {
         this.vector = vector;
         this.position = position;
+        this.radius = radius;
     }
 
     public Vector getVector() {
@@ -17,3 +19,4 @@ public class Ball {
         return position;
     }
 }
+
