@@ -35,16 +35,24 @@ public class Pong implements IPong{
          this.ball.getVector();
     }
 
+    //returns the reflected vector of the given ball onto the given line
     public Vector reflectedVector(Ball ball, Implicit wallEquation) {
-        Vector normalVector = new Vector(1, new Position2D(wallEquation.getVector().getDirection().getY(),
-                -1 *wallEquation.getVector().getDirection().getX()));
-        int scalar = (ball.getVector().dotProduct(wallEquation.getVector())) / (wallEquation.getVector().dotProduct(wallEquation.getVector()));
-        Vector projVector = new Vector(1, new Position2D((scalar * normalVector.getDirection().getX()),
-                (scalar * normalVector.getDirection().getY())));
-        Vector twoTimes = new Vector(1, new Position2D((2 * projVector.getDirection().getX()), (2 * projVector.getDirection().getY())));
+        float ballX = ball.getVector().getDirection().getX();
+        float ballY = ball.getVector().getDirection().getY();
+        Vector ballVector = new Vector(ball.getVector().getMagnitude(), new Position2D(ballX, ballY));
 
-        Vector finalVector = new Vector(ball.getVector().getMagnitude(), new Position2D(ball.getVector().getDirection().getX() - twoTimes.getDirection().getX(),
-                ball.getVector().getDirection().getY() - twoTimes.getDirection().getY()));
+        float impX = wallEquation.getVector().getDirection().getY();
+        float impY = -wallEquation.getVector().getDirection().getX();
+        Vector impVector = new Vector(1, new Position2D(impX, impY));
+
+        float scalar = ballVector.dotProduct(impVector) / impVector.dotProduct(impVector);
+
+        Vector projVector = impVector.applyScalar(scalar);
+
+        Vector twoTimes = projVector.applyScalar(2);
+
+        Vector finalVector = new Vector(ball.getVector().getMagnitude(),
+                new Position2D(ballX - twoTimes.getDirection().getX(), ballY - twoTimes.getDirection().getY()));
         return finalVector;
     }
 }
