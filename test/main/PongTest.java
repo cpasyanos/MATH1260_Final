@@ -1,6 +1,5 @@
 package main;
 
-import javafx.geometry.Pos;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -12,9 +11,9 @@ public class PongTest {
   Position2D origin = new Position2D(0, 0);
   Paddle paddle1 = new Paddle(origin, 90);
   Paddle paddle2 = new Paddle(origin, 90);
-  Implicit complexImplicit = new Implicit(complexReflection, new Position2D(0,0));
-  Implicit testImplicit = new Implicit(new Vector(1, new Position2D(5, 0)), new Position2D(0,0));
-  Screen screen = new Screen(complexImplicit, testImplicit, testImplicit, testImplicit);
+  Line complexLine = new Line(complexReflection, new Position2D(0,0));
+  Line testLine = new Line(new Vector(1, new Position2D(5, 0)), new Position2D(0,0));
+  Screen screen = new Screen(complexLine, testLine, testLine, testLine);
   IPong pong = new Pong(ball, paddle1, paddle2, screen);
 
   @Test
@@ -35,7 +34,7 @@ public class PongTest {
 
   @Test
   public  void testApplyVector() {
-    assertEquals(new Vector(1, new Position2D(10, 0)), testImplicit.getVector().applyScalar(2));
+    assertEquals(new Vector(1, new Position2D(10, 0)), testLine.getVector().applyScalar(2));
   }
 
 
