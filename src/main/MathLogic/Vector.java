@@ -1,4 +1,4 @@
-package main;
+package main.MathLogic;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ public class Vector {
   private int magnitude;
   private Position2D direction;
 
-  Vector(int magnitude, Position2D direction) {
+  public Vector(int magnitude, Position2D direction) {
     this.magnitude = magnitude;
     this.direction = direction;
   }

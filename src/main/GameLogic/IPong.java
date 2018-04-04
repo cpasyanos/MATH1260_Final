@@ -1,4 +1,6 @@
-package main;
+package main.GameLogic;
+
+import main.MathLogic.Vector;
 
 public interface IPong {
 

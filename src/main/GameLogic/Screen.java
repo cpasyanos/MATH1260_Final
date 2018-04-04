@@ -1,4 +1,6 @@
-package main;
+package main.GameLogic;
+
+import main.MathLogic.Position2D;
 
 public class Screen {
   private final Line rightWall;

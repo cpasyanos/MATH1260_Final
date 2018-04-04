@@ -1,4 +1,6 @@
-package main;
+package main.GameLogic;
+
+import main.MathLogic.Position2D;
 
 public class Paddle {
     private Position2D position;

@@ -1,16 +1,24 @@
-package main;
+package main.GameLogic;
+
+import main.GUI.GameFrame;
+import main.MathLogic.Position2D;
+import main.MathLogic.Vector;
 
 public class Pong implements IPong {
   private Ball ball;
   private Paddle paddle;
   private Paddle paddle2;
   private Screen screen;
+  private GameFrame gFrame;
+  private static final int width = 1200;
+  private static final int height = 1000;
 
   public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen) {
     this.ball = ball;
     this.paddle = paddle;
     this.paddle2 = paddle2;
     this.screen = screen;
+    this.gFrame = new GameFrame(width, height);
   }
 
   public Ball getBall() {
@@ -26,8 +34,9 @@ public class Pong implements IPong {
   }
 
   //game loop
+  @Override
   public void play() {
-
+    gFrame.setVisible(true);
   }
 
   //A collision between the ball and the wall
@@ -38,6 +47,7 @@ public class Pong implements IPong {
   }
 
   //returns the reflected vector of the given ball onto the given line
+  @Override
   public Vector reflectedVector(Ball ball, Line wallEquation) {
     float ballX = ball.getVector().getDirection().getX();
     float ballY = ball.getVector().getDirection().getY();
