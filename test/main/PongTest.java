@@ -17,7 +17,7 @@ public class PongTest {
   Line complexLine = new Line(complexReflection, new Position2D(0,0));
   Line testLine = new Line(new Vector(1, new Position2D(5, 0)), new Position2D(0,0));
   Screen screen = new Screen(complexLine, testLine, testLine, testLine);
-  IPong pong = new Pong(ball, paddle1, paddle2, screen);
+  IPong pong = new Pong(ball, paddle1, paddle2, screen, 800, 800);
 
   @Test
   public void testReflection () {

@@ -24,14 +24,17 @@ public class Ball {
 
   //Changes the position over time
   //Confused about what to do over the magnitude
-  public void move () {
+
+  /**
+   * Basically, Im just adding to vectors together over and over.
+   */
+  public void move (float time) {
     position.add(vector.getDirection());
-
-    //HAVE TO ALSO HANDLE COLLISIONS WITH THE WALL
-    //WALLS ARE MADE WITH IMPLICIT EQNS THOUGH
-
-
   }
 
+
+  public int getRadius() {
+    return radius;
+  }
 }
 

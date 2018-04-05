@@ -1,6 +1,9 @@
 package main.GameLogic;
 
+import java.awt.*;
+
 import main.GUI.GameFrame;
+import main.GUI.GameView;
 import main.MathLogic.Position2D;
 import main.MathLogic.Vector;
 
@@ -10,15 +13,19 @@ public class Pong implements IPong {
   private Paddle paddle2;
   private Screen screen;
   private GameFrame gFrame;
-  private static final int width = 1200;
-  private static final int height = 1000;
+  private GameView view;
+  private final int width;
+  private final int height;
 
-  public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen) {
+  public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen, int width, int height) {
     this.ball = ball;
     this.paddle = paddle;
     this.paddle2 = paddle2;
     this.screen = screen;
+    this.width = width;
+    this.height = height;
     this.gFrame = new GameFrame(width, height);
+    view = new GameView(width, height, ball);
   }
 
   public Ball getBall() {
@@ -36,12 +43,71 @@ public class Pong implements IPong {
   //game loop
   @Override
   public void play() {
-    gFrame.setVisible(true);
+    boolean gameLoop = true;
+    view.setPreferredSize(new Dimension(width, height));
+    this.gFrame.setContentPane(view);
+    this.gFrame.pack();
+
+    long lastLoopTime = System.nanoTime();
+    final int TARGET_FPS = 60;
+    final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+    double lastFpsTime = 0;
+    double fps = 0;
+
+    //keep this loop running till the game ends
+    while (gameLoop) {
+
+      //work out how long its been since the last update, this will be used to calculate how far
+      // the entities should move this loop
+      long now = System.nanoTime();
+      long updateLength = now - lastLoopTime;
+      lastLoopTime = now;
+      double delta = updateLength/ (double) OPTIMAL_TIME;
+
+      //update the frame counter
+      lastFpsTime += updateLength;
+      fps++;
+
+      // update our FPS counter if a second has passed since
+      // we last recorded
+      if (lastFpsTime >= 1000000000)
+      {
+        System.out.println("(FPS: "+fps+")");
+        lastFpsTime = 0;
+        fps = 0;
+      }
+
+      System.out.println(delta);
+      // update the game logic
+      wallCollision(delta);
+
+      // draw everyting
+      view.repaint();
+
+
+
+      // we want each frame to take 10 milliseconds, to do this
+      // we've recorded when we started the frame. We add 10 milliseconds
+      // to this and then factor in the current time to give
+      // us our final value to wait for
+      // remember this is in ms, whereas our lastLoopTime etc. vars are in ns.
+
+        try{
+          Thread.sleep( (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000);
+        } catch (Exception e) {
+          System.out.println(e.toString() + "try catch in play");
+        }
+
+
+
+
+      view.repaint();
+    }
   }
 
   //A collision between the ball and the wall
   //when there is a collision, reflect the ball
-  private void wallCollision(int time) {
+  private void wallCollision(double time) {
     Line wallEquation = this.screen.wallCollision(ball, time);
     reflectedVector(ball, wallEquation);
   }
