@@ -5,11 +5,16 @@ import main.MathLogic.Vector;
 
 public class Line {
 
-  //length of wall?
   private Vector vector;
-
-  //starting point of wall?
   private Position2D point;
+
+  /**
+   * A line has a starting position and vector magnitude. This line is used to represent the walls
+   * as well as the ball and paddle.
+   *
+   * @param vector The distance of the Line.
+   * @param point  This is the starting point of the line.
+   */
 
   public Line(Vector vector, Position2D point) {
     this.vector = vector;
@@ -24,7 +29,7 @@ public class Line {
     return point;
   }
 
-  //function tells whether there is a point of intersection
+
   public boolean isPointOfIntersection (Position2D other, double time) {
     float x1 = this.point.getX() + (this.getVector().getDirection().getX() * (float)time);
     float x2 = other.getX();

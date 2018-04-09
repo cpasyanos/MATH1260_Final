@@ -16,6 +16,9 @@ public class Pong implements IPong {
   private GameView view;
   private final int width;
   private final int height;
+  //this is going to be reset throughout the game. Specifically after every collision.
+  private long startTime = System.currentTimeMillis()/1000;
+
 
   public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen, int width, int height) {
     this.ball = ball;
@@ -48,58 +51,17 @@ public class Pong implements IPong {
     this.gFrame.setContentPane(view);
     this.gFrame.pack();
 
-    long lastLoopTime = System.nanoTime();
-    final int TARGET_FPS = 60;
-    final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
-    double lastFpsTime = 0;
-    double fps = 0;
-
     //keep this loop running till the game ends
     while (gameLoop) {
-
-      //work out how long its been since the last update, this will be used to calculate how far
-      // the entities should move this loop
-      long now = System.nanoTime();
-      long updateLength = now - lastLoopTime;
-      lastLoopTime = now;
-      double delta = updateLength/ (double) OPTIMAL_TIME;
-
-      //update the frame counter
-      lastFpsTime += updateLength;
-      fps++;
-
-      // update our FPS counter if a second has passed since
-      // we last recorded
-      if (lastFpsTime >= 1000000000)
-      {
-        System.out.println("(FPS: "+fps+")");
-        lastFpsTime = 0;
-        fps = 0;
+      //elapsed time is basically the timer of the game.
+      long elapsedTime = System.currentTimeMillis()/1000 - startTime;
+      try {
+        // thread to sleep for 1000 milliseconds
+        Thread.sleep(1000);
+        System.out.println(elapsedTime);
+      } catch (Exception e) {
+        System.out.println(e);
       }
-
-      System.out.println(delta);
-      // update the game logic
-      wallCollision(delta);
-
-      // draw everyting
-      view.repaint();
-
-
-
-      // we want each frame to take 10 milliseconds, to do this
-      // we've recorded when we started the frame. We add 10 milliseconds
-      // to this and then factor in the current time to give
-      // us our final value to wait for
-      // remember this is in ms, whereas our lastLoopTime etc. vars are in ns.
-
-        try{
-          Thread.sleep( (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000);
-        } catch (Exception e) {
-          System.out.println(e.toString() + "try catch in play");
-        }
-
-
-
 
       view.repaint();
     }
@@ -115,9 +77,9 @@ public class Pong implements IPong {
   //returns the reflected vector of the given ball onto the given line
   @Override
   public Vector reflectedVector(Ball ball, Line wallEquation) {
-    float ballX = ball.getVector().getDirection().getX();
-    float ballY = ball.getVector().getDirection().getY();
-    Vector ballVector = new Vector(ball.getVector().getMagnitude(), new Position2D(ballX, ballY));
+    float ballX = ball.getBallEqn().getVector().getDirection().getX();
+    float ballY = ball.getBallEqn().getVector().getDirection().getY();
+    Vector ballVector = new Vector(ball.getBallEqn().getVector().getMagnitude(), new Position2D(ballX, ballY));
 
     float impX = wallEquation.getVector().getDirection().getY();
     float impY = -wallEquation.getVector().getDirection().getX();
@@ -129,7 +91,7 @@ public class Pong implements IPong {
 
     Vector twoTimes = projVector.applyScalar(2);
 
-    Vector finalVector = new Vector(ball.getVector().getMagnitude(),
+    Vector finalVector = new Vector(ball.getBallEqn().getVector().getMagnitude(),
             new Position2D(ballX - twoTimes.getDirection().getX(), ballY - twoTimes.getDirection().getY()));
     return finalVector;
   }

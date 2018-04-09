@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class PongTest {
   Vector testVector = new Vector (1,new Position2D(3, -4));
   Vector complexReflection = new Vector(1, new Position2D(1,2));
-  Ball ball = new Ball (testVector, new Position2D(0,0), 5);
+  Ball ball = new Ball (new Line (testVector, new Position2D(0,0)), 5);
   Position2D origin = new Position2D(0, 0);
   Paddle paddle1 = new Paddle(origin, 90);
   Paddle paddle2 = new Paddle(origin, 90);
@@ -32,7 +32,7 @@ public class PongTest {
   @Test
   public void testDotProduct () {
     assertEquals(15.0,
-            ball.getVector().dotProduct(screen.getTopWall().getVector()), .5);
+            ball.getBallEqn().getVector().dotProduct(screen.getTopWall().getVector()), .5);
   }
 
   @Test

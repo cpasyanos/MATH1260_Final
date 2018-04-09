@@ -1,37 +1,27 @@
 package main.GameLogic;
 
-import main.MathLogic.Position2D;
-import main.MathLogic.Vector;
-
 public class Ball {
-  private Vector vector;
-  private Position2D position;
+
+
+  private Line ballEqn;
   private int radius;
 
-  public Ball(Vector vector, Position2D position, int radius) {
-    this.vector = vector;
-    this.position = position;
+  /**
+   * Every ball has a line representing where it is going and its starting point as well as its
+   * radius.
+   *
+   * @param ballEqn   The line telling where the ball is going.
+   * @param radius    The radius of the ball.
+   */
+
+  public Ball(Line ballEqn, int radius) {
+    this.ballEqn = ballEqn;
     this.radius = radius;
   }
 
-  public Vector getVector() {
-    return vector;
+  public Line getBallEqn() {
+    return ballEqn;
   }
-
-  public Position2D getPosition() {
-    return position;
-  }
-
-  //Changes the position over time
-  //Confused about what to do over the magnitude
-
-  /**
-   * Basically, Im just adding to vectors together over and over.
-   */
-  public void move (float time) {
-    position.add(vector.getDirection());
-  }
-
 
   public int getRadius() {
     return radius;
