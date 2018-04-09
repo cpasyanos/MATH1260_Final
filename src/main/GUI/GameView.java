@@ -25,7 +25,7 @@ public class GameView extends JPanel {
     g.setColor(Color.BLACK);
     g.fillRect(0, 0, width, height);
     g.setColor(Color.BLUE);
-    g.fillOval((int)b.getPosition().getX(), (int)b.getPosition().getY(),
+    g.fillOval((int)b.getBallEqn().getPoint().getX(), (int)b.getBallEqn().getPoint().getY(),
             b.getRadius() * 2, b.getRadius() * 2);
   }
 }

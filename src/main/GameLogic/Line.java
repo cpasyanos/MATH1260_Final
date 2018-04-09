@@ -45,4 +45,13 @@ public class Line {
   }
 
 
+  /**
+   * Moves the ball by a certain percentage of its total vector distance.
+   *
+   * @param percentageToMove  The amount to move the ball.
+   */
+  public void movementCalculation(float percentageToMove) {
+    Vector toMove = this.vector.applyScalar(percentageToMove);
+    this.point = this.point.add(toMove.getDirection());
+  }
 }

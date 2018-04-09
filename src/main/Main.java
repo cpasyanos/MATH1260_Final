@@ -14,18 +14,29 @@ public class Main {
 
   public static void main(String[] args) {
 
+    //walls here
+    Vector rightAndLeftWallVectar = new Vector(1, new Position2D(0, -height));
+    Vector topAndBottomWallVectar = new Vector(1, new Position2D(width, 0));
+    Line rightWall = new Line(rightAndLeftWallVectar, new Position2D(width,0 ));
+    Line leftWall = new Line(rightAndLeftWallVectar, new Position2D(0,0 ));
+    Line topWall = new Line (topAndBottomWallVectar, new Position2D(0,0 ));
+    Line bottomWall = new Line (topAndBottomWallVectar, new Position2D(0,-height));
+    Screen screen = new Screen(rightWall, leftWall, topWall, bottomWall);
 
 
 
-    Vector testVector = new Vector(1, new Position2D(3, -4));
-    Vector complexReflection = new Vector(1, new Position2D(1, 2));
-    Ball ball = new Ball(testVector, new Position2D(width/2, height/2), 10);
+    //ball stuff
+    Vector ballVector = new Vector(1, new Position2D(width/2, -height/2));
+    Ball ball = new Ball(new Line (ballVector, new Position2D(width/2, height/2)), 10);
+
+
+    //paddle stuff here
     Position2D origin = new Position2D(0, 0);
     Paddle paddle1 = new Paddle(origin, 90);
     Paddle paddle2 = new Paddle(origin, 90);
-    Line complexLine = new Line(complexReflection, new Position2D(0, 0));
-    Line testLine = new Line(new Vector(1, new Position2D(5, 0)), new Position2D(0, 0));
-    Screen screen = new Screen(complexLine, testLine, testLine, testLine);
+
+
+
     IPong pong = new Pong(ball, paddle1, paddle2, screen, width, height);
 
     pong.play();

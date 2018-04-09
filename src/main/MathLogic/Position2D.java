@@ -17,7 +17,12 @@ public class Position2D {
     return y;
   }
 
-  //adds together two positions
+  /**
+   * Adds together two positions.
+   *
+   * @param that  The other position to add.
+   * @return      The new position.
+   */
   public Position2D add(Position2D that) {
     return new Position2D(this.x + that.x, this.y + that.y);
   }

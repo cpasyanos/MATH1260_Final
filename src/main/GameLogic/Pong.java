@@ -59,11 +59,12 @@ public class Pong implements IPong {
         // thread to sleep for 1000 milliseconds
         Thread.sleep(1000);
         System.out.println(elapsedTime);
+        ball.moveBall((float)0.1);
+        view.repaint();
       } catch (Exception e) {
         System.out.println(e);
       }
 
-      view.repaint();
     }
   }
 

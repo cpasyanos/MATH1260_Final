@@ -26,5 +26,16 @@ public class Ball {
   public int getRadius() {
     return radius;
   }
+
+
+  /**
+   * MoveBall moves the ball by a percentage of the vector. So if percentageToMove is 1/10, then the
+   * ball will also move 1/10 of whatever the vectar is.
+   *
+   * @param percentageToMove  How much of the distance vector should the ball move.
+   */
+  public void moveBall(float percentageToMove) {
+    this.ballEqn.movementCalculation(percentageToMove);
+  }
 }
 
