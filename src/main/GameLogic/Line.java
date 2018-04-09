@@ -43,7 +43,13 @@ public class Line {
     float y1 = this.point.getY() + (this.getVector().getDirection().getY());
     float y2 = ballPoint.getY();
 
-    return false;
+    float impX = this.vector.getDirection().getY();
+    float impY = -this.vector.getDirection().getX();
+    Vector impVector = new Vector(1, new Position2D(impX, impY));
+    float constant = (impVector.getDirection().getX() * point.getX()) + (impVector.getDirection().getY() * point.getY());
+
+
+    return ((ballPoint.getX() * impX) + (ballPoint.getY() * impY)) == constant;
   }
 
 
