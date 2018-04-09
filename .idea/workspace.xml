@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09c62841-5b33-486d-98a5-d379a26ca6fe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameLogic/IPong.java" afterPath="$PROJECT_DIR$/src/main/GameLogic/IPong.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameLogic/Line.java" afterPath="$PROJECT_DIR$/src/main/GameLogic/Line.java" />
       <change beforePath="$PROJECT_DIR$/src/main/GameLogic/Pong.java" afterPath="$PROJECT_DIR$/src/main/GameLogic/Pong.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameLogic/Screen.java" afterPath="$PROJECT_DIR$/src/main/GameLogic/Screen.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/MathLogic/Position2D.java" afterPath="$PROJECT_DIR$/src/main/MathLogic/Position2D.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pong.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pong.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Pong.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="495">
+              <caret line="92" column="65" lean-forward="true" selection-start-line="90" selection-start-column="3" selection-end-line="92" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,7 +62,7 @@
       <file leaf-file-name="Screen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
+            <state relative-caret-position="405">
               <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="49" />
               <folding />
             </state>
@@ -126,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Line.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Line.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Line.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+            <state relative-caret-position="480">
+              <caret line="45" column="15" lean-forward="true" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#555#556#0" expanded="true" />
@@ -179,8 +175,8 @@
         <option value="$PROJECT_DIR$/src/main/MathLogic/Position2D.java" />
         <option value="$PROJECT_DIR$/src/main/GameLogic/Screen.java" />
         <option value="$PROJECT_DIR$/src/main/GameLogic/Line.java" />
-        <option value="$PROJECT_DIR$/src/main/GameLogic/Pong.java" />
         <option value="$PROJECT_DIR$/src/main/GameLogic/IPong.java" />
+        <option value="$PROJECT_DIR$/src/main/GameLogic/Pong.java" />
       </list>
     </option>
   </component>
@@ -467,7 +463,7 @@
       <workItem from="1522957774557" duration="24000" />
       <workItem from="1522958041057" duration="4531000" />
       <workItem from="1523302352073" duration="3827000" />
-      <workItem from="1523308371797" duration="2624000" />
+      <workItem from="1523308371797" duration="3275000" />
     </task>
     <servers />
   </component>
@@ -480,11 +476,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20106000" />
+    <option name="totallyTimeSpent" value="20757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -494,9 +489,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25151148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25151148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45244566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.452237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36337626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1076,28 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GameLogic/IPong.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1106,12 +1079,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Pong.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="495">
+          <caret line="92" column="65" lean-forward="true" selection-start-line="90" selection-start-column="3" selection-end-line="92" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GameLogic/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="45" column="15" lean-forward="true" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
           </folding>
         </state>
       </provider>

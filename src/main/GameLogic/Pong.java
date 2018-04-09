@@ -75,8 +75,6 @@ public class Pong implements IPong {
     reflectedVector(ball, wallEquation);
   }
 
-  //returns the reflected vector of the given ball onto the given line
-
   /**
    * Function returns the balls new reflected vector. It uses the vector equation we learned in
    * class.
