@@ -57,7 +57,8 @@ public class Pong implements IPong {
       long elapsedTime = System.currentTimeMillis()/1000 - startTime;
       try {
         // thread to sleep for 1000 milliseconds
-        Thread.sleep(1000);
+        // this is basically the refresh rate for the game
+        Thread.sleep(100);
         System.out.println(elapsedTime);
         ball.moveBall((float)0.1);
         view.repaint();

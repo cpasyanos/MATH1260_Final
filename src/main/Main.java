@@ -26,7 +26,7 @@ public class Main {
 
 
     //ball stuff
-    Vector ballVector = new Vector(1, new Position2D(width/2, -height/2));
+    Vector ballVector = new Vector(1, new Position2D(50, 50));
     Ball ball = new Ball(new Line (ballVector, new Position2D(width/2, height/2)), 10);
 
 
