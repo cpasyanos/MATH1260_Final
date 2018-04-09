@@ -58,8 +58,7 @@ public class Pong implements IPong {
       try {
         // thread to sleep for 1000 milliseconds
         // this is basically the refresh rate for the game
-        Thread.sleep(100);
-        System.out.println(elapsedTime);
+        Thread.sleep(60);
         ball.moveBall((float)0.1);
         view.repaint();
       } catch (Exception e) {
@@ -71,14 +70,22 @@ public class Pong implements IPong {
 
   //A collision between the ball and the wall
   //when there is a collision, reflect the ball
-  private void wallCollision(double time) {
-    Line wallEquation = this.screen.wallCollision(ball, time);
+  private void wallCollision() {
+    Line wallEquation = this.screen.wallCollision(ball);
     reflectedVector(ball, wallEquation);
   }
 
   //returns the reflected vector of the given ball onto the given line
-  @Override
-  public Vector reflectedVector(Ball ball, Line wallEquation) {
+
+  /**
+   * Function returns the balls new reflected vector. It uses the vector equation we learned in
+   * class.
+   *
+   * @param ball          The ball that went through the collision.
+   * @param wallEquation  The equation that the ball collided with.
+   * @return              The new Ball Equation.
+   */
+  private Vector reflectedVector(Ball ball, Line wallEquation) {
     float ballX = ball.getBallEqn().getVector().getDirection().getX();
     float ballY = ball.getBallEqn().getVector().getDirection().getY();
     Vector ballVector = new Vector(ball.getBallEqn().getVector().getMagnitude(), new Position2D(ballX, ballY));

@@ -32,13 +32,13 @@ public class Screen {
   }
 
   //returns the line where the ball collided
-  public Line wallCollision (Ball ball, double time) {
+  public Line wallCollision (Ball ball) {
     Position2D ballP = ball.getBallEqn().getPoint();
-    if (rightWall.isPointOfIntersection(ballP, time)) {
+    if (rightWall.isPointOfIntersection(ballP)) {
       return rightWall;
-    } else if (leftWall.isPointOfIntersection(ballP, time)) {
+    } else if (leftWall.isPointOfIntersection(ballP)) {
       return leftWall;
-    }  else if (topWall.isPointOfIntersection(ballP, time)) {
+    }  else if (topWall.isPointOfIntersection(ballP)) {
       return topWall;
     } else {
       return bottomWall;

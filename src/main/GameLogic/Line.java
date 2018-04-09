@@ -30,18 +30,20 @@ public class Line {
   }
 
 
-  public boolean isPointOfIntersection (Position2D other, double time) {
-    float x1 = this.point.getX() + (this.getVector().getDirection().getX() * (float)time);
-    float x2 = other.getX();
+  /**
+   * Code determines whether the two vectors are equal to eachother.
+   *
+   * @param ballPoint  The current position of the ball.
+   * @return           Whether or not ball collided with something.
+   */
+  public boolean isPointOfIntersection (Position2D ballPoint) {
+    float x1 = this.point.getX() + (this.getVector().getDirection().getX());
+    float x2 = ballPoint.getX();
 
-    float y1 = this.point.getY() + (this.getVector().getDirection().getY() * (float)time);
-    float y2 = other.getY();
+    float y1 = this.point.getY() + (this.getVector().getDirection().getY());
+    float y2 = ballPoint.getY();
 
-    if (x1 == x2 && y1 == y2) {
-      return true;
-    } else {
-      return false;
-    }
+    return false;
   }
 
 
