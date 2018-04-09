@@ -19,15 +19,15 @@ public class PongTest {
   Screen screen = new Screen(complexLine, testLine, testLine, testLine);
   IPong pong = new Pong(ball, paddle1, paddle2, screen, 800, 800);
 
-  @Test
-  public void testReflection () {
-    assertEquals(3,
-            pong.reflectedVector(this.ball, this.screen.getTopWall()).getDirection().getX(), .5);
-    assertEquals(4,
-            pong.reflectedVector(this.ball, this.screen.getTopWall()).getDirection().getY(), .5);
-    assertEquals(new Vector(1, new Position2D(3, 4)), pong.reflectedVector(this.ball, this.screen.getTopWall()));
-    assertEquals(new Vector(1, new Position2D(-5, 0)), pong.reflectedVector(this.ball, this.screen.getRightWall()));
-  }
+//  @Test
+//  public void testReflection () {
+//    assertEquals(3,
+//            pong.reflectedVector(this.ball, this.screen.getTopWall()).getDirection().getX(), .5);
+//    assertEquals(4,
+//            pong.reflectedVector(this.ball, this.screen.getTopWall()).getDirection().getY(), .5);
+//    assertEquals(new Vector(1, new Position2D(3, 4)), pong.reflectedVector(this.ball, this.screen.getTopWall()));
+//    assertEquals(new Vector(1, new Position2D(-5, 0)), pong.reflectedVector(this.ball, this.screen.getRightWall()));
+//  }
 
   @Test
   public void testDotProduct () {

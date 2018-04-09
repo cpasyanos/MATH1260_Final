@@ -44,6 +44,7 @@ public class Pong implements IPong {
   }
 
   //game loop
+
   @Override
   public void play() {
     boolean gameLoop = true;
@@ -60,6 +61,7 @@ public class Pong implements IPong {
         // this is basically the refresh rate for the game
         Thread.sleep(60);
         ball.moveBall((float)0.1);
+        this.wallCollision();
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
