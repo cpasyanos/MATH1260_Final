@@ -74,7 +74,11 @@ public class Pong implements IPong {
   //when there is a collision, reflect the ball
   private void wallCollision() {
     Line wallEquation = this.screen.wallCollision(ball);
-    reflectedVector(ball, wallEquation);
+    if (wallEquation == null) {
+
+    } else {
+      ball.setBallEqn(reflectedLine(ball, wallEquation));
+    }
   }
 
   /**
@@ -85,7 +89,7 @@ public class Pong implements IPong {
    * @param wallEquation  The equation that the ball collided with.
    * @return              The new Ball Equation.
    */
-  private Vector reflectedVector(Ball ball, Line wallEquation) {
+  private Line reflectedLine(Ball ball, Line wallEquation) {
     float ballX = ball.getBallEqn().getVector().getDirection().getX();
     float ballY = ball.getBallEqn().getVector().getDirection().getY();
     Vector ballVector = new Vector(ball.getBallEqn().getVector().getMagnitude(), new Position2D(ballX, ballY));
@@ -102,6 +106,6 @@ public class Pong implements IPong {
 
     Vector finalVector = new Vector(ball.getBallEqn().getVector().getMagnitude(),
             new Position2D(ballX - twoTimes.getDirection().getX(), ballY - twoTimes.getDirection().getY()));
-    return finalVector;
+    return new Line(finalVector,ball.getBallEqn().getPoint());
   }
 }

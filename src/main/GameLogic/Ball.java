@@ -37,5 +37,14 @@ public class Ball {
   public void moveBall(float percentageToMove) {
     this.ballEqn.movementCalculation(percentageToMove);
   }
+
+  /**
+   * Set the ball's new vector for bouncing.
+   *
+   * @param ballEqn the new equation for the ball.
+   */
+  public void setBallEqn(Line ballEqn) {
+    this.ballEqn = ballEqn;
+  }
 }
 
