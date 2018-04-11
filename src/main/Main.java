@@ -39,6 +39,7 @@ public class Main {
 
     IPong pong = new Pong(ball, paddle1, paddle2, screen, width, height);
 
+
     pong.play();
   }
 }

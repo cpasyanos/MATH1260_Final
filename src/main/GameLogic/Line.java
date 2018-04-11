@@ -33,10 +33,10 @@ public class Line {
   /**
    * Code determines whether the two vectors are equal to eachother.
    *
-   * @param ballPoint  The current position of the ball.
-   * @return           Whether or not ball collided with something.
+   * @param ballPoint The current position of the ball.
+   * @return Whether or not ball collided with something.
    */
-  public boolean isPointOfIntersection (Position2D ballPoint) {
+  public boolean isPointOfIntersection(Position2D ballPoint) {
     float x1 = this.point.getX() + (this.getVector().getDirection().getX());
     float x2 = ballPoint.getX();
 
@@ -48,17 +48,22 @@ public class Line {
     Vector impVector = new Vector(1, new Position2D(impX, impY));
     float constant = (impVector.getDirection().getX() * point.getX()) + (impVector.getDirection().getY() * point.getY());
 
-    return ((ballPoint.getX() * impX) + (ballPoint.getY() * impY)) == constant;
+    return ((x2 * impX) + (y2 * impY)) == constant;
   }
 
 
   /**
    * Moves the ball by a certain percentage of its total vector distance.
    *
-   * @param percentageToMove  The amount to move the ball.
+   * @param percentageToMove The amount to move the ball.
    */
   public void movementCalculation(float percentageToMove) {
     Vector toMove = this.vector.applyScalar(percentageToMove);
     this.point = this.point.add(toMove.getDirection());
+  }
+
+  @Override
+  public String toString() {
+    return this.point.toString() + " and the " + this.vector.toString();
   }
 }

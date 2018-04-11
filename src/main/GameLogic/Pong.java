@@ -29,6 +29,7 @@ public class Pong implements IPong {
     this.height = height;
     this.gFrame = new GameFrame(width, height);
     view = new GameView(width, height, ball);
+
   }
 
   public Ball getBall() {
@@ -47,6 +48,7 @@ public class Pong implements IPong {
 
   @Override
   public void play() {
+
     boolean gameLoop = true;
     view.setPreferredSize(new Dimension(width, height));
     this.gFrame.setContentPane(view);
@@ -62,6 +64,10 @@ public class Pong implements IPong {
         Thread.sleep(60);
         ball.moveBall((float)0.1);
         this.wallCollision();
+        //System.out.println("X position of the ball is " + ball.getBallEqn().getPoint().getX());
+        //System.out.println("Y position of the ball is " + ball.getBallEqn().getPoint().getY());
+        //System.out.println("Leftwall egn is " + screen.getLeftWall().toString());
+
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
