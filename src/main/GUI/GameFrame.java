@@ -1,8 +1,5 @@
 package main.GUI;
 
-import oracle.jvm.hotspot.jfr.JFR;
-
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -27,7 +24,7 @@ public class GameFrame extends JFrame implements KeyListener {
     this.pong = pong;
     this.addKeyListener(this);
     panel = new JPanel();
-    playerOne = new JLabel(Integer.toString(pong.getPlayerOneScore()));
+    /* playerOne = new JLabel(Integer.toString(pong.getPlayerOneScore()));
     playerTwo = new JLabel(Integer.toString(pong.getPlayerTwoScore()));
     add(playerOne);
     add(playerTwo);
@@ -35,7 +32,7 @@ public class GameFrame extends JFrame implements KeyListener {
     panel.add(playerOne);
     panel.add(playerTwo);
     add (panel, BorderLayout.NORTH);
-    add(area, BorderLayout.CENTER);
+    add(area, BorderLayout.CENTER);*/
     setVisible(true);
   }
 
@@ -64,8 +61,6 @@ public class GameFrame extends JFrame implements KeyListener {
     if (keyCode == KeyEvent.VK_DOWN) {
       pong.getRightPaddle().movePaddle(Direction.SOUTH);
     }
-
-
   }
 
   @Override

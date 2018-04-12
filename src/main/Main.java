@@ -26,8 +26,8 @@ public class Main {
     Ball ball = new Ball(new Line (ballVector, new Position2D(width/2, height/2)), 10);
 
     //paddle stuff here
-    Position2D leftP = new Position2D(width/2 - width/4, height/2);
-    Position2D rightP = new Position2D(width/2 + width/4, height/2);
+    Position2D leftP = new Position2D(50, height/2);
+    Position2D rightP = new Position2D(width - 50 - 20, height/2);
     Paddle paddle1 = new Paddle(leftP, 90);
     Paddle paddle2 = new Paddle(rightP, 90);
 

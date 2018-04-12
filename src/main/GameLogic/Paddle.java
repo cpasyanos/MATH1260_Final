@@ -12,7 +12,7 @@ public class Paddle {
     this.position = position;
     this.angle = angle;
     padelwidth = 20;
-    padelheight = 40;
+    padelheight = 60;
   }
 
   public Position2D getPosition() {
