@@ -27,8 +27,8 @@ public class Pong implements IPong {
     this.screen = screen;
     this.width = width;
     this.height = height;
-    this.gFrame = new GameFrame(width, height);
-    view = new GameView(width, height, ball);
+    this.gFrame = new GameFrame(width, height, this);
+    view = new GameView(width, height, ball, paddle, paddle2);
 
   }
 
@@ -58,16 +58,13 @@ public class Pong implements IPong {
     while (gameLoop) {
       //elapsed time is basically the timer of the game.
       long elapsedTime = System.currentTimeMillis()/1000 - startTime;
+      //System.out.println(elapsedTime);
       try {
         // thread to sleep for 1000 milliseconds
         // this is basically the refresh rate for the game
-        Thread.sleep(60);
+        Thread.sleep(30);
         ball.moveBall((float)0.1);
         this.wallCollision();
-        //System.out.println("X position of the ball is " + ball.getBallEqn().getPoint().getX());
-        //System.out.println("Y position of the ball is " + ball.getBallEqn().getPoint().getY());
-        //System.out.println("Leftwall egn is " + screen.getLeftWall().toString());
-
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
@@ -111,5 +108,15 @@ public class Pong implements IPong {
     Vector finalVector = new Vector(ball.getBallEqn().getVector().getMagnitude(),
             new Position2D(ballX - twoTimes.getDirection().getX(), ballY - twoTimes.getDirection().getY()));
     return new Line(finalVector,ball.getBallEqn().getPoint());
+  }
+
+  @Override
+  public Paddle getLeftPaddle() {
+    return this.paddle;
+  }
+
+  @Override
+  public Paddle getRightPaddle() {
+    return this.paddle2;
   }
 }

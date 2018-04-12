@@ -32,7 +32,16 @@ public class Screen {
   }
 
 
-
+  /**
+   * Function determines whether the ball hit the edge of the screen. It does this by checking a
+   * range 30 units out of the edge of the screen. Because of thread.sleep, collisions are inaccurate.
+   * Atleast the way I did it here. There is no doubt a better way to do this.
+   *
+   * @param ball    The ball that needs to bounce around.
+   * @param width   The width of the game world.
+   * @param height  The height of the game world
+   * @return        The equation of the wall a collision occured.
+   */
   public Line wallCollision (Ball ball, int width, int height) {
     Position2D ballP = ball.getBallEqn().getPoint();
     //System.out.println(ballP.toString());

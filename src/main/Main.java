@@ -27,9 +27,10 @@ public class Main {
 
 
     //paddle stuff here
-    Position2D origin = new Position2D(0, 0);
-    Paddle paddle1 = new Paddle(origin, 90);
-    Paddle paddle2 = new Paddle(origin, 90);
+    Position2D leftP = new Position2D(width/2 - width/4, height/2);
+    Position2D rightP = new Position2D(width/2 + width/4, height/2);
+    Paddle paddle1 = new Paddle(leftP, 90);
+    Paddle paddle2 = new Paddle(rightP, 90);
 
 
 
