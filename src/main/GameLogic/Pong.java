@@ -18,17 +18,22 @@ public class Pong implements IPong {
   private final int height;
   //this is going to be reset throughout the game. Specifically after every collision.
   private long startTime = System.currentTimeMillis()/1000;
+  private int playerOneScore;
+  private int playerTwoScore;
 
 
-  public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen, int width, int height) {
+
+  public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen, int width, int height, int playerOneScore, int playerTwoScore) {
     this.ball = ball;
     this.paddle = paddle;
     this.paddle2 = paddle2;
     this.screen = screen;
     this.width = width;
     this.height = height;
-    this.gFrame = new GameFrame(width, height);
-    view = new GameView(width, height, ball);
+    this.playerOneScore = playerOneScore;
+    this.playerTwoScore = playerTwoScore;
+    this.gFrame = new GameFrame(width, height, this);
+    view = new GameView(width, height, ball, paddle, paddle2);
 
   }
 
@@ -56,18 +61,17 @@ public class Pong implements IPong {
 
     //keep this loop running till the game ends
     while (gameLoop) {
+
       //elapsed time is basically the timer of the game.
       long elapsedTime = System.currentTimeMillis()/1000 - startTime;
+      //System.out.println(elapsedTime);
       try {
         // thread to sleep for 1000 milliseconds
         // this is basically the refresh rate for the game
-        Thread.sleep(60);
+        Thread.sleep(30);
         ball.moveBall((float)0.1);
         this.wallCollision();
-        //System.out.println("X position of the ball is " + ball.getBallEqn().getPoint().getX());
-        //System.out.println("Y position of the ball is " + ball.getBallEqn().getPoint().getY());
-        //System.out.println("Leftwall egn is " + screen.getLeftWall().toString());
-
+        this.paddleCollision();
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
@@ -79,9 +83,19 @@ public class Pong implements IPong {
   //A collision between the ball and the wall
   //when there is a collision, reflect the ball
   private void wallCollision() {
-    Line wallEquation = this.screen.wallCollision(ball);
-    if (wallEquation != null) {
-      ball.setBallEqn(reflectedLine(ball, wallEquation));
+    Walls wall = this.screen.wallCollision(ball, width, height);
+    if (wall == Walls.LEFT) {
+      playerOneScore++;
+      reset();
+    } else if (wall == Walls.RIGHT) {
+      playerTwoScore++;
+      reset();
+    } else if (wall == Walls.NORTH) {
+      reflectedLine(ball, screen.getTopWall());
+    } else if (wall == Walls.SOUTH) {
+      reflectedLine(ball, screen.getBottomWall());
+    } else {
+
     }
   }
 
@@ -111,5 +125,52 @@ public class Pong implements IPong {
     Vector finalVector = new Vector(ball.getBallEqn().getVector().getMagnitude(),
             new Position2D(ballX - twoTimes.getDirection().getX(), ballY - twoTimes.getDirection().getY()));
     return new Line(finalVector,ball.getBallEqn().getPoint());
+  }
+
+  @Override
+  public Paddle getLeftPaddle() {
+    return this.paddle;
+  }
+
+  @Override
+  public Paddle getRightPaddle() {
+    return this.paddle2;
+  }
+
+  /**
+   * I am only working on paddle collision for the left and right side of the paddle.
+   */
+  private void paddleCollision () {
+    if (ball.getBallEqn().getPoint().getX() > paddle.getPosition().getX() + paddle.getPadelWidth()/2
+            && ball.getBallEqn().getPoint().getX() < paddle.getPosition().getX() + paddle.getPadelWidth()/2 + 30
+            && ball.getBallEqn().getPoint().getY() < paddle.getPosition().getY() + paddle.getPadelHeight()/2
+            && ball.getBallEqn().getPoint().getY() > paddle.getPosition().getY() - paddle.getPadelHeight()/2) {
+      ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle.getPosition())));
+    }
+
+
+    if (ball.getBallEqn().getPoint().getX() < paddle2.getPosition().getX() - paddle.getPadelWidth()/2
+            && ball.getBallEqn().getPoint().getX() > paddle2.getPosition().getX() - paddle.getPadelWidth()/2 - 30
+            && ball.getBallEqn().getPoint().getY() < paddle2.getPosition().getY() + paddle.getPadelHeight()/2
+            && ball.getBallEqn().getPoint().getY() > paddle2.getPosition().getY() - paddle.getPadelHeight()/2) {
+      ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle2.getPosition())));
+    }
+
+  }
+
+  private void reset () {
+    Vector temp = new Vector(1, new Position2D(-70, -50));
+    ball.setBallEqn(new Line (temp,  new Position2D(width/2, height/2)));
+    ball.setRadius(10);
+  }
+
+  @Override
+  public int getPlayerOneScore() {
+    return this.playerOneScore;
+  }
+
+  @Override
+  public int getPlayerTwoScore() {
+    return this.playerTwoScore;
   }
 }

@@ -30,6 +30,21 @@ public class Position2D {
   }
 
   /**
+   * Add to the y value.
+   */
+  public void addToY (float y) {
+    this.y += y;
+  }
+
+  /**
+   * Add to the x value.
+   */
+  public void addToX (float x) {
+    this.x += x;
+  }
+
+
+  /**
    * Point of intersection uses this in other to determine if two points are equal.
    */
   @Override
