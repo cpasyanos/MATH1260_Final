@@ -46,7 +46,6 @@ public class Screen {
     Position2D ballP = ball.getBallEqn().getPoint();
     //System.out.println(ballP.toString());
     if (ballP.getX() < 30 && ballP.getY() < height) {
-      System.out.println("leftwall");
       return leftWall;
     } else if (ballP.getX() < width && ballP.getX() > width - 30 && ballP.getY() < height) {
       return rightWall;

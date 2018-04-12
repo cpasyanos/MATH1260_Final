@@ -56,6 +56,7 @@ public class Pong implements IPong {
 
     //keep this loop running till the game ends
     while (gameLoop) {
+
       //elapsed time is basically the timer of the game.
       long elapsedTime = System.currentTimeMillis()/1000 - startTime;
       //System.out.println(elapsedTime);
@@ -65,6 +66,7 @@ public class Pong implements IPong {
         Thread.sleep(30);
         ball.moveBall((float)0.1);
         this.wallCollision();
+        this.paddleCollision();
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
@@ -119,4 +121,26 @@ public class Pong implements IPong {
   public Paddle getRightPaddle() {
     return this.paddle2;
   }
+
+  /**
+   * I am only working on paddle collision for the left and right side of the paddle.
+   */
+  private void paddleCollision () {
+    if (ball.getBallEqn().getPoint().getX() > paddle.getPosition().getX() + paddle.getPadelWidth()/2
+            && ball.getBallEqn().getPoint().getX() < paddle.getPosition().getX() + paddle.getPadelWidth()/2 + 30
+            && ball.getBallEqn().getPoint().getY() < paddle.getPosition().getY() + paddle.getPadelHeight()/2
+            && ball.getBallEqn().getPoint().getY() > paddle.getPosition().getY() - paddle.getPadelHeight()/2) {
+      ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle.getPosition())));
+    }
+
+
+    if (ball.getBallEqn().getPoint().getX() < paddle2.getPosition().getX() - paddle.getPadelWidth()/2
+            && ball.getBallEqn().getPoint().getX() > paddle2.getPosition().getX() - paddle.getPadelWidth()/2 - 30
+            && ball.getBallEqn().getPoint().getY() < paddle2.getPosition().getY() + paddle.getPadelHeight()/2
+            && ball.getBallEqn().getPoint().getY() > paddle2.getPosition().getY() - paddle.getPadelHeight()/2) {
+      ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle2.getPosition())));
+    }
+
+  }
+
 }

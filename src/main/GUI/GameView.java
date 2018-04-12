@@ -28,12 +28,11 @@ public class GameView extends JPanel {
   @Override
   public void paint (Graphics g) {
     g.setColor(Color.BLACK);
-//    g.fillRect(0, 0, width, height);
-//    g.setColor(Color.BLUE);
+    g.fillRect(0, 0, width, height);
+    g.setColor(Color.BLUE);
     g.fillOval((int)b.getBallEqn().getPoint().getX(), (int)b.getBallEqn().getPoint().getY(),
             b.getRadius() * 2, b.getRadius() * 2);
-    g.setColor(Color.BLACK);
-    g.fillRect((int) leftP.getPosition().getX(), (int) leftP.getPosition().getY(), leftP.getPadelwidth(), leftP.getPadelheight());
-    g.fillRect((int) rightP.getPosition().getX(), (int) rightP.getPosition().getY(), rightP.getPadelwidth(), rightP.getPadelheight());
+    g.fillRect((int) leftP.getPosition().getX(), (int) leftP.getPosition().getY(), leftP.getPadelWidth(), leftP.getPadelHeight());
+    g.fillRect((int) rightP.getPosition().getX(), (int) rightP.getPosition().getY(), rightP.getPadelWidth(), rightP.getPadelHeight());
   }
 }

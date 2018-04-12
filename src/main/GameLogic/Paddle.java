@@ -31,18 +31,17 @@ public class Paddle {
    */
   public void movePaddle (Direction direction) {
     if (direction == Direction.NORTH) {
-      this.position.addToY(-10);
-      System.out.println(this.position.toString());
+      this.position.addToY(-30);
     } else if (direction == Direction.SOUTH) {
-      this.position.addToY(10);
+      this.position.addToY(30);
     }
   }
 
-  public int getPadelwidth() {
+  public int getPadelWidth() {
     return padelwidth;
   }
 
-  public int getPadelheight() {
+  public int getPadelHeight() {
     return padelheight;
   }
 }

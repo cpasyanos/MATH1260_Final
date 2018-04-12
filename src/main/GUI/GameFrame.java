@@ -36,7 +36,7 @@ public class GameFrame extends JFrame implements KeyListener {
       pong.getLeftPaddle().movePaddle(Direction.NORTH);
     }
 
-    if (keyCode == KeyEvent.VK_A) {
+    if (keyCode == KeyEvent.VK_S) {
       pong.getLeftPaddle().movePaddle(Direction.SOUTH);
     }
 
