@@ -15,16 +15,16 @@ public class Main {
   public static void main(String[] args) {
 
     //walls here
-    Vector rightAndLeftWallVectar = new Vector(1, new Position2D(0, -height));
+    Vector rightAndLeftWallVectar = new Vector(1, new Position2D(0, height));
     Vector topAndBottomWallVectar = new Vector(1, new Position2D(width, 0));
     Line rightWall = new Line(rightAndLeftWallVectar, new Position2D(width,0 ));
     Line leftWall = new Line(rightAndLeftWallVectar, new Position2D(0,0 ));
     Line topWall = new Line (topAndBottomWallVectar, new Position2D(0,0 ));
-    Line bottomWall = new Line (topAndBottomWallVectar, new Position2D(0,-height));
+    Line bottomWall = new Line (topAndBottomWallVectar, new Position2D(0, height));
     Screen screen = new Screen(rightWall, leftWall, topWall, bottomWall);
 
     //ball stuff
-    Vector ballVector = new Vector(1, new Position2D(50, 50));
+    Vector ballVector = new Vector(1, new Position2D(-70, -50));
     Ball ball = new Ball(new Line (ballVector, new Position2D(width/2, height/2)), 10);
 
 
@@ -36,6 +36,7 @@ public class Main {
 
 
     IPong pong = new Pong(ball, paddle1, paddle2, screen, width, height);
+
 
     pong.play();
   }

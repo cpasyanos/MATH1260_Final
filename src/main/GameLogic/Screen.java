@@ -35,14 +35,21 @@ public class Screen {
   public Line wallCollision (Ball ball) {
     Position2D ballP = ball.getBallEqn().getPoint();
     if (rightWall.isPointOfIntersection(ballP)) {
+      System.out.println("rightwall");
       return rightWall;
     } else if (leftWall.isPointOfIntersection(ballP)) {
+      System.out.println("leftwall");
       return leftWall;
-    }  else if (topWall.isPointOfIntersection(ballP)) {
+    } else if (topWall.isPointOfIntersection(ballP)) {
+      System.out.println("topwall");
       return topWall;
-    } else {
+    } else if (bottomWall.isPointOfIntersection(ballP)){
+      System.out.println("bottomwall");
       return bottomWall;
+    } else {
+      return null;
     }
   }
+
 
 }

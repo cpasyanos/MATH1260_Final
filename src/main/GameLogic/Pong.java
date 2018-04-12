@@ -29,6 +29,7 @@ public class Pong implements IPong {
     this.height = height;
     this.gFrame = new GameFrame(width, height);
     view = new GameView(width, height, ball);
+
   }
 
   public Ball getBall() {
@@ -47,6 +48,7 @@ public class Pong implements IPong {
 
   @Override
   public void play() {
+
     boolean gameLoop = true;
     view.setPreferredSize(new Dimension(width, height));
     this.gFrame.setContentPane(view);
@@ -62,6 +64,10 @@ public class Pong implements IPong {
         Thread.sleep(60);
         ball.moveBall((float)0.1);
         this.wallCollision();
+        //System.out.println("X position of the ball is " + ball.getBallEqn().getPoint().getX());
+        //System.out.println("Y position of the ball is " + ball.getBallEqn().getPoint().getY());
+        //System.out.println("Leftwall egn is " + screen.getLeftWall().toString());
+
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
@@ -74,7 +80,9 @@ public class Pong implements IPong {
   //when there is a collision, reflect the ball
   private void wallCollision() {
     Line wallEquation = this.screen.wallCollision(ball);
-    reflectedVector(ball, wallEquation);
+    if (wallEquation != null) {
+      ball.setBallEqn(reflectedLine(ball, wallEquation));
+    }
   }
 
   /**
@@ -85,7 +93,7 @@ public class Pong implements IPong {
    * @param wallEquation  The equation that the ball collided with.
    * @return              The new Ball Equation.
    */
-  private Vector reflectedVector(Ball ball, Line wallEquation) {
+  private Line reflectedLine(Ball ball, Line wallEquation) {
     float ballX = ball.getBallEqn().getVector().getDirection().getX();
     float ballY = ball.getBallEqn().getVector().getDirection().getY();
     Vector ballVector = new Vector(ball.getBallEqn().getVector().getMagnitude(), new Position2D(ballX, ballY));
@@ -102,6 +110,6 @@ public class Pong implements IPong {
 
     Vector finalVector = new Vector(ball.getBallEqn().getVector().getMagnitude(),
             new Position2D(ballX - twoTimes.getDirection().getX(), ballY - twoTimes.getDirection().getY()));
-    return finalVector;
+    return new Line(finalVector,ball.getBallEqn().getPoint());
   }
 }

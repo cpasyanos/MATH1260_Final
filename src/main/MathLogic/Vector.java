@@ -52,4 +52,13 @@ public class Vector {
   public int hashCode() {
     return Objects.hash(this.magnitude, this.direction);
   }
+
+  @Override
+  public String toString () {
+    return "Vector is " + "(" + getDirection().getX() + ", " + getDirection().getY() + ")";
+  }
+
+
 }
+
+
