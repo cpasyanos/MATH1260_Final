@@ -19,14 +19,20 @@ public class Pong implements IPong {
   //this is going to be reset throughout the game. Specifically after every collision.
   private long startTime = System.currentTimeMillis()/1000;
 
+  private int playerOneScore;
+  private int playerTwoScore;
 
-  public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen, int width, int height) {
+
+
+  public Pong(Ball ball, Paddle paddle, Paddle paddle2, Screen screen, int width, int height, int playerOneScore, int playerTwoScore) {
     this.ball = ball;
     this.paddle = paddle;
     this.paddle2 = paddle2;
     this.screen = screen;
     this.width = width;
     this.height = height;
+    this.playerOneScore = playerOneScore;
+    this.playerTwoScore = playerTwoScore;
     this.gFrame = new GameFrame(width, height, this);
     view = new GameView(width, height, ball, paddle, paddle2);
 
@@ -143,4 +149,13 @@ public class Pong implements IPong {
 
   }
 
+  @Override
+  public int getPlayerOneScore() {
+    return this.playerOneScore;
+  }
+
+  @Override
+  public int getPlayerTwoScore() {
+    return this.playerTwoScore;
+  }
 }

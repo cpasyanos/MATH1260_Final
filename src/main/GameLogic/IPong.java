@@ -8,5 +8,9 @@ public interface IPong {
 
   Paddle getRightPaddle ();
 
+  int getPlayerOneScore ();
+
+  int getPlayerTwoScore();
+
 
 }

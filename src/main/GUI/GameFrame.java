@@ -1,9 +1,12 @@
 package main.GUI;
 
+import oracle.jvm.hotspot.jfr.JFR;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import main.GameLogic.Direction;
 import main.GameLogic.IPong;
@@ -11,15 +14,29 @@ import main.GameLogic.IPong;
 public class GameFrame extends JFrame implements KeyListener {
 
   private IPong pong;
+  private JLabel playerOne;
+  private JLabel playerTwo;
+  private JTextArea area;
+  private JPanel panel;
 
   public GameFrame(int width, int height, IPong pong) {
     setTitle("Pong II: Electric Boogaloo");
     setSize(width, height);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setVisible(true);
     this.pong = pong;
     this.addKeyListener(this);
+    panel = new JPanel();
+    playerOne = new JLabel(Integer.toString(pong.getPlayerOneScore()));
+    playerTwo = new JLabel(Integer.toString(pong.getPlayerTwoScore()));
+    add(playerOne);
+    add(playerTwo);
+    area = new JTextArea();
+    panel.add(playerOne);
+    panel.add(playerTwo);
+    add (panel, BorderLayout.NORTH);
+    add(area, BorderLayout.CENTER);
+    setVisible(true);
   }
 
   @Override
