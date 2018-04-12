@@ -18,7 +18,6 @@ public class Pong implements IPong {
   private final int height;
   //this is going to be reset throughout the game. Specifically after every collision.
   private long startTime = System.currentTimeMillis()/1000;
-
   private int playerOneScore;
   private int playerTwoScore;
 
@@ -84,9 +83,19 @@ public class Pong implements IPong {
   //A collision between the ball and the wall
   //when there is a collision, reflect the ball
   private void wallCollision() {
-    Line wallEquation = this.screen.wallCollision(ball, width, height);
-    if (wallEquation != null) {
-      ball.setBallEqn(reflectedLine(ball, wallEquation));
+    Walls wall = this.screen.wallCollision(ball, width, height);
+    if (wall == Walls.LEFT) {
+      playerOneScore++;
+      reset();
+    } else if (wall == Walls.RIGHT) {
+      playerTwoScore++;
+      reset();
+    } else if (wall == Walls.NORTH) {
+      reflectedLine(ball, screen.getTopWall());
+    } else if (wall == Walls.SOUTH) {
+      reflectedLine(ball, screen.getBottomWall());
+    } else {
+
     }
   }
 
@@ -147,6 +156,12 @@ public class Pong implements IPong {
       ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle2.getPosition())));
     }
 
+  }
+
+  private void reset () {
+    Vector temp = new Vector(1, new Position2D(-70, -50));
+    ball.setBallEqn(new Line (temp,  new Position2D(width/2, height/2)));
+    ball.setRadius(10);
   }
 
   @Override

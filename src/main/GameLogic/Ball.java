@@ -46,5 +46,9 @@ public class Ball {
   public void setBallEqn(Line ballEqn) {
     this.ballEqn = ballEqn;
   }
+
+  public void setRadius(int radius) {
+    this.radius = radius;
+  }
 }
 

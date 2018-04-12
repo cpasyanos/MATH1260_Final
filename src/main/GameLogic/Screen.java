@@ -42,40 +42,21 @@ public class Screen {
    * @param height  The height of the game world
    * @return        The equation of the wall a collision occured.
    */
-  public Line wallCollision (Ball ball, int width, int height) {
+  public Walls wallCollision (Ball ball, int width, int height) {
     Position2D ballP = ball.getBallEqn().getPoint();
     //System.out.println(ballP.toString());
     if (ballP.getX() < 30 && ballP.getY() < height) {
-      return leftWall;
+      return Walls.LEFT;
     } else if (ballP.getX() < width && ballP.getX() > width - 30 && ballP.getY() < height) {
-      return rightWall;
+      return Walls.RIGHT;
     } else if (ballP.getX() < width && ballP.getY() < height && ballP.getY() > height - 30) {
-      return bottomWall;
+      return Walls.SOUTH;
     } else if (ballP.getX() < width && ballP.getY() > 0 && ballP.getY() < 30) {
-      return topWall;
+      return Walls.NORTH;
     } else return null;
-
-
-
-
-
-
-//    if (rightWall.isPointOfIntersection(ballP)) {
-//      System.out.println("rightwall");
-//      return rightWall;
-//    } else if (leftWall.isPointOfIntersection(ballP)) {
-//      System.out.println("leftwall");
-//      return leftWall;
-//    } else if (topWall.isPointOfIntersection(ballP)) {
-//      System.out.println("topwall");
-//      return topWall;
-//    } else if (bottomWall.isPointOfIntersection(ballP)){
-//      System.out.println("bottomwall");
-//      return bottomWall;
-//    } else {
-//      return null;
-//    }
   }
+
+
 
 
 }
