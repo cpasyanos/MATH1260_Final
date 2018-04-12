@@ -95,9 +95,10 @@ public class Pong implements IPong {
       playerOneScore++;
       reset();
     } else if (wall == Walls.NORTH) {
-      reflectedLine(ball, screen.getTopWall());
+      //System.out.println("here");
+      ball.setBallEqn(reflectedLine(ball, screen.getTopWall()));
     } else if (wall == Walls.SOUTH) {
-      reflectedLine(ball, screen.getBottomWall());
+      ball.setBallEqn(reflectedLine(ball, screen.getBottomWall()));
     }
   }
 
@@ -144,7 +145,7 @@ public class Pong implements IPong {
    */
   private void paddleCollision () {
     if (ball.getBallEqn().getPoint().getX() > paddle.getPosition().getX() + paddle.getPadelWidth()/2
-            && ball.getBallEqn().getPoint().getX() < paddle.getPosition().getX() + paddle.getPadelWidth()/2 + 30
+            && ball.getBallEqn().getPoint().getX() < paddle.getPosition().getX() + paddle.getPadelWidth()/2 + 40
             && ball.getBallEqn().getPoint().getY() < paddle.getPosition().getY() + paddle.getPadelHeight()/2
             && ball.getBallEqn().getPoint().getY() > paddle.getPosition().getY() - paddle.getPadelHeight()/2) {
       ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle.getPosition())));
@@ -152,7 +153,7 @@ public class Pong implements IPong {
 
 
     if (ball.getBallEqn().getPoint().getX() < paddle2.getPosition().getX() - paddle.getPadelWidth()/2
-            && ball.getBallEqn().getPoint().getX() > paddle2.getPosition().getX() - paddle.getPadelWidth()/2 - 30
+            && ball.getBallEqn().getPoint().getX() > paddle2.getPosition().getX() - paddle.getPadelWidth()/2 - 40
             && ball.getBallEqn().getPoint().getY() < paddle2.getPosition().getY() + paddle.getPadelHeight()/2
             && ball.getBallEqn().getPoint().getY() > paddle2.getPosition().getY() - paddle.getPadelHeight()/2) {
       ball.setBallEqn(reflectedLine(this.ball, new Line(new Vector (1, new Position2D(0, 1)), paddle2.getPosition())));

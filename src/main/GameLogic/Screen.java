@@ -44,7 +44,6 @@ public class Screen {
    */
   public Walls wallCollision (Ball ball, int width, int height) {
     Position2D ballP = ball.getBallEqn().getPoint();
-    //System.out.println(ballP.toString());
     if (ballP.getX() < 30 && ballP.getY() < height) {
       return Walls.LEFT;
     } else if (ballP.getX() < width && ballP.getX() > width - 30 && ballP.getY() < height) {
