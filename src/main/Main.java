@@ -23,8 +23,6 @@ public class Main {
     Line bottomWall = new Line (topAndBottomWallVectar, new Position2D(0,-height));
     Screen screen = new Screen(rightWall, leftWall, topWall, bottomWall);
 
-
-
     //ball stuff
     Vector ballVector = new Vector(1, new Position2D(50, 50));
     Ball ball = new Ball(new Line (ballVector, new Position2D(width/2, height/2)), 10);
