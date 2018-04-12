@@ -14,7 +14,7 @@ public class GameView extends JPanel {
   Ball b;
   Paddle leftP;
   Paddle rightP;
-
+  private int score1, score2;
 
   public GameView(int width, int height, Ball b, Paddle leftP, Paddle rightP) {
     this.vwidth = width;
@@ -22,6 +22,8 @@ public class GameView extends JPanel {
     this.b = b;
     this.leftP = leftP;
     this.rightP = rightP;
+    score1 = 0;
+    score2 = 0;
   }
 
   @Override
@@ -35,7 +37,12 @@ public class GameView extends JPanel {
     g.fillRect((int) rightP.getPosition().getX(), (int) rightP.getPosition().getY(), rightP.getPadelWidth(), rightP.getPadelHeight());
     g.setFont(new Font("idk", Font.BOLD, 24));
     g.setColor(Color.WHITE);
-    g.drawString("pong!!!", vwidth / 2, 50);
+    g.drawString("p1: " + score1, vwidth / 4 - 20, 50);
+    g.drawString("p2: " + score2, 3*vwidth / 4, 50);
+  }
 
+  public void updateScore(int score1, int score2) {
+    this.score1 = score1;
+    this.score2 = score2;
   }
 }

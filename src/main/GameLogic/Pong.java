@@ -54,13 +54,12 @@ public class Pong implements IPong {
   @Override
   public void play() {
 
-    boolean gameLoop = true;
     view.setPreferredSize(new Dimension(width, height));
     this.gFrame.setContentPane(view);
     this.gFrame.pack();
 
     //keep this loop running till the game ends
-    while (gameLoop) {
+    while (!isGameOver()) {
 
       //elapsed time is basically the timer of the game.
       long elapsedTime = System.currentTimeMillis()/1000 - startTime;
@@ -72,6 +71,7 @@ public class Pong implements IPong {
         ball.moveBall((float)0.1);
         this.wallCollision();
         this.paddleCollision();
+        view.updateScore(playerOneScore, playerTwoScore);
         view.repaint();
       } catch (Exception e) {
         System.out.println(e);
@@ -80,22 +80,24 @@ public class Pong implements IPong {
     }
   }
 
+  private boolean isGameOver() {
+      return playerOneScore == 10 || playerTwoScore == 10;
+  }
+
   //A collision between the ball and the wall
   //when there is a collision, reflect the ball
   private void wallCollision() {
     Walls wall = this.screen.wallCollision(ball, width, height);
     if (wall == Walls.LEFT) {
-      playerOneScore++;
+      playerTwoScore++;
       reset();
     } else if (wall == Walls.RIGHT) {
-      playerTwoScore++;
+      playerOneScore++;
       reset();
     } else if (wall == Walls.NORTH) {
       reflectedLine(ball, screen.getTopWall());
     } else if (wall == Walls.SOUTH) {
       reflectedLine(ball, screen.getBottomWall());
-    } else {
-
     }
   }
 
