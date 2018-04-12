@@ -1,4 +1,4 @@
-package main;
+package main.MathLogic;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ public class Vector {
   private int magnitude;
   private Position2D direction;
 
-  Vector(int magnitude, Position2D direction) {
+  public Vector(int magnitude, Position2D direction) {
     this.magnitude = magnitude;
     this.direction = direction;
   }
@@ -19,12 +19,19 @@ public class Vector {
     return direction;
   }
 
-  //computes the dot product of this and the given vector
+  /**
+   * computes the dot product of this and the given vector
+   */
   public float dotProduct(Vector other) {
     return (this.direction.getX() * other.direction.getX()) + (this.direction.getY() * other.direction.getY());
   }
 
-  // applies the given to scalar to each component of this vector
+  /**
+   * Performs scalar multiplication on the vector.
+   *
+   * @param scalar  The scalar used in multiplication.
+   * @return        The new vector with the given multiplication.
+   */
   public Vector applyScalar(float scalar) {
     return new Vector(this.getMagnitude(), new Position2D(scalar * this.getDirection().getX(), scalar * this.getDirection().getY()));
   }
@@ -45,4 +52,13 @@ public class Vector {
   public int hashCode() {
     return Objects.hash(this.magnitude, this.direction);
   }
+
+  @Override
+  public String toString () {
+    return "Vector is " + "(" + getDirection().getX() + ", " + getDirection().getY() + ")";
+  }
+
+
 }
+
+

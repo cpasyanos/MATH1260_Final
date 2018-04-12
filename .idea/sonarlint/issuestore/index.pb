@@ -1,3 +1,0 @@
-
-B
-MATH1260_Final.iml,f\8\f85cbb57517a567dc72512cd4459f157719e0c25
