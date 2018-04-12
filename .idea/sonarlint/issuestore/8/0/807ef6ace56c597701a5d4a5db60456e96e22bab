@@ -1,0 +1,6 @@
+
+Asquid:S1481"'Remove this unused "x1" local variable.(±ìëäùÿÿÿÿ
+Psquid:S1854"6Remove this useless assignment to local variable "x1".(±ìëäùÿÿÿÿ
+usquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­Âòûÿÿÿÿ
+Ksquid:S1854"6Remove this useless assignment to local variable "y1".(¤ÌË¼
+<squid:S1481"'Remove this unused "y1" local variable.(¤ÌË¼

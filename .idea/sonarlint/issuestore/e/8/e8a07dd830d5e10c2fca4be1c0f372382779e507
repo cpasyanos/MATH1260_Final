@@ -1,0 +1,4 @@
+
+]squid:UselessImportCheck"/Remove this unused import 'java.time.Duration'.(λα―‰όÿÿÿÿ8άξαΉ«,
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ΌγΠώ8άξαΉ«,
+|squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(£΄½Òωÿÿÿÿ8άξαΉ«,
