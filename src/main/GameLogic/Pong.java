@@ -79,7 +79,7 @@ public class Pong implements IPong {
   //A collision between the ball and the wall
   //when there is a collision, reflect the ball
   private void wallCollision() {
-    Line wallEquation = this.screen.wallCollision(ball);
+    Line wallEquation = this.screen.wallCollision(ball, width, height);
     if (wallEquation != null) {
       ball.setBallEqn(reflectedLine(ball, wallEquation));
     }
